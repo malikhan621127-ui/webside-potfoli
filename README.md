@@ -1,35 +1,49 @@
-# Muhammad Ali — Portfolio Website
+# Muhammad Ali — Anime-Inspired Portfolio
 
-A static HTML, CSS, and JavaScript portfolio website.
+A responsive static portfolio made with HTML, CSS and vanilla JavaScript. It includes five switchable anime-inspired themes, subtle motion effects, contact details and a browser-local guestbook.
 
 ## Run locally
 
 1. Extract the project ZIP.
-2. Open `index.html` in a modern browser, or serve this folder with a local static web server.
-3. Keep the `images/` and `videos/` folders alongside `index.html`; the page uses relative asset paths.
+2. Open `index.html` in a modern browser, or serve the folder with a local static web server.
+3. Keep `style.css`, `script.js`, the `images/` folder and the `videos/` folder alongside `index.html`.
 
-## Featured video
+No build tools, package installation or framework are required.
 
-The supplied vertical video is included at `videos/featured-video.mp4` and embedded in the page's **Featured video** section. It uses native browser playback controls and does not autoplay.
+## Five selectable themes
+
+- **Sakura** — dark plum with pink and violet accents.
+- **Cyber Tokyo** — midnight blue, cyan neon and a digital grid.
+- **Shonen** — warm action-inspired orange and red.
+- **Moonlight** — midnight indigo, lavender and cool blue.
+- **Zen Garden** — light sage and warm neutral surfaces.
+
+Theme choice is saved in browser local storage and restored on the next visit on that same browser/device.
+
+## Portfolio details
+
+- Name: Muhammad Ali
+- Location: Rahim Yar Khan, Pakistan
+- Education: Matriculation / 10th class passed
+- Email: malikhan621127@gmail.com
+
+The email address is displayed publicly as requested. Consider using a separate public-facing email address if you do not want your personal inbox exposed on a public website.
+
+## Guestbook / comments
+
+The comment form validates input and displays comments safely using text nodes. Comments are stored in the visitor's browser local storage only. They are **not** sent to a server and are not visible to other visitors. A backend and appropriate moderation/anti-spam controls would be needed for a shared public comment system.
 
 ## Project files
 
-- `index.html` — page content and navigation
-- `style.css` — layout, colors, responsive styles, and video presentation
-- `script.js` — footer year and the on-page greeting interaction
-- `images/` — site images and the video poster frame
-- `videos/` — supplied MP4 video
+- `index.html` — portfolio sections, five-theme selector, contact information and guestbook.
+- `style.css` — responsive layout, theme variables, anime-inspired visual effects and reduced-motion support.
+- `script.js` — theme persistence, email copy helper, local comments, scroll progress and reveal animations.
+- `images/` — the supplied logo and visual assets.
+- `videos/` — the supplied featured MP4.
 
-## Updates made
+## Notes
 
-- Added an Education section showing **Matriculation (10th Class) — Passed**.
-- Added a Selected Work / Portfolio section with cards linking to the website, featured video and travel gallery already included in the project.
-- Added Education and Portfolio links to the main navigation.
-- Kept the portfolio identity as **Muhammad Ali**.
-
-- Added the featured video section and navigation link.
-- Added a poster frame and responsive video styling.
-- Added the missing closing `</html>` element.
-- Removed an empty duplicate `logo.jpg` file from the project root.
-- Kept the existing destination images and page content.
-- Improved the one-time greeting interaction and added a disabled-button state.
+- The featured video uses native browser controls and does not autoplay.
+- Existing image and video files are retained.
+- The theme selector works without JavaScript disabled only in its default Sakura appearance; interactive switching and the guestbook require JavaScript.
+- Google Fonts are optional enhancements; system font fallbacks are included.

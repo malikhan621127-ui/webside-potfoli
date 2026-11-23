@@ -1,357 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="sakura">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Muhammad Ali's personal portfolio — web development, skills and travel inspiration.">
-  <meta name="theme-color" content="#080808">
-
-  <title>Muhammad Ali | Portfolio</title>
-
+  <meta name="description" content="Muhammad Ali's anime-inspired personal portfolio — web design, creative work, video and contact information.">
+  <meta name="theme-color" content="#0b0712" id="theme-color-meta">
+  <meta name="color-scheme" content="dark light">
+  <title>Muhammad Ali | Creative Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Muhammad Ali home">
-      <img class="brand-logo" src="images/logo.jpg" alt="">
-      <span>MA<span class="brand-dot">.</span></span>
+      <span class="brand-mark" aria-hidden="true">MA<span>✦</span></span>
+      <span class="brand-name">MUHAMMAD ALI<span class="brand-dot">.</span></span>
     </a>
-
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#video">Video</a>
-      <a href="#destinations">Travel</a>
       <a href="#contact">Contact</a>
+      <a href="#comments">Comments</a>
     </nav>
+    <a class="header-cta" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
   </header>
 
-  <main>
-
-    <!-- HERO SECTION -->
-    <section class="hero section-width" id="home">
-
-      <div class="hero-copy">
-        <p class="eyebrow">
-          <span class="eyebrow-line"></span>
-          Welcome to my portfolio
-        </p>
-
-        <h1>Hello, I'm <span>Muhammad Ali</span></h1>
-
-        <p class="intro">
-          I create clean, responsive and engaging websites
-          with modern HTML, CSS and JavaScript.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contact">
-            Let's Talk <span>↗</span>
-          </a>
-
-          <a class="button button-secondary" href="#about">
-            About Me
-          </a>
-        </div>
-
-        <p class="hero-note">
-          <span class="status-dot"></span>
-          Learning, building and creating every day.
-        </p>
-      </div>
-
-      <div class="hero-visual">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-
-        <div class="profile-frame">
-          <img src="images/logo.jpg" alt="Muhammad Ali's red and black logo">
-        </div>
-
-        <span class="visual-caption">
-          MUHAMMAD ALI <span>•</span> PORTFOLIO
-        </span>
-      </div>
-
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section class="section section-width" id="about">
-
-      <p class="section-label">01 / About me</p>
-
-      <h2>
-        Building simple ideas into useful digital experiences.
-      </h2>
-
-      <p class="section-intro">
-        I enjoy learning web technologies and turning designs
-        into fast, accessible and mobile-friendly websites.
-        I focus on clear layouts, thoughtful details and
-        experiences that work across devices.
-      </p>
-
-    </section>
-
-    <!-- EDUCATION SECTION -->
-    <section class="section section-width" id="education">
-
-      <p class="section-label">02 / Education</p>
-
-      <h2>My education</h2>
-
-      <article class="education-card">
-        <div class="education-mark" aria-hidden="true">10</div>
-        <div class="education-copy">
-          <p class="education-status"><span class="status-dot" aria-hidden="true"></span> Passed</p>
-          <h3>Matriculation</h3>
-          <p>10th Class</p>
-        </div>
-        <span class="education-level">Secondary education</span>
-      </article>
-
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section class="section section-width" id="skills">
-
-      <p class="section-label">03 / My skills</p>
-
-      <h2>What I work with</h2>
-
-      <div class="skill-grid">
-
-        <article class="skill-card">
-          <span class="skill-number">01</span>
-          <div class="skill-icon">&lt;/&gt;</div>
-          <h3>HTML</h3>
-          <p>Semantic, organized and accessible website structure.</p>
-        </article>
-
-        <article class="skill-card">
-          <span class="skill-number">02</span>
-          <div class="skill-icon">✳</div>
-          <h3>CSS</h3>
-          <p>Responsive layouts, visual design and smooth interactions.</p>
-        </article>
-
-        <article class="skill-card">
-          <span class="skill-number">03</span>
-          <div class="skill-icon skill-icon-js">JS</div>
-          <h3>JavaScript</h3>
-          <p>Useful interactions and engaging user experiences.</p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- PORTFOLIO SECTION -->
-    <section class="section section-width" id="portfolio">
-
-      <p class="section-label">04 / Selected work</p>
-
-      <h2>A few things from my portfolio.</h2>
-      <p class="section-intro">
-        A selection of the website, media and visual features included in this portfolio.
-      </p>
-
-      <div class="portfolio-grid">
-        <article class="portfolio-card">
-          <div class="portfolio-preview preview-website" aria-hidden="true">
-            <span class="preview-window"><i></i><i></i><i></i><b>MA.</b><em></em><em></em></span>
-          </div>
-          <div class="portfolio-copy">
-            <p class="portfolio-type">WEB DESIGN</p>
-            <h3>Personal Portfolio Website</h3>
-            <p>A responsive personal website built with HTML, CSS and JavaScript.</p>
-            <div class="portfolio-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-            <a href="#home" class="portfolio-link">View this website <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-preview preview-video" aria-hidden="true">
-            <img src="images/featured-video-poster.jpg" alt="" loading="lazy">
-            <span class="preview-play">▶</span>
-          </div>
-          <div class="portfolio-copy">
-            <p class="portfolio-type">VIDEO</p>
-            <h3>Anime Video Showcase</h3>
-            <p>A vertical video feature with an embedded player and custom poster image.</p>
-            <div class="portfolio-tags"><span>Video</span><span>Visual media</span></div>
-            <a href="#video" class="portfolio-link">Watch featured video <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <div class="portfolio-preview preview-gallery" aria-hidden="true">
-            <img src="images/kyoto-autumn.jfif" alt="" loading="lazy">
-            <img src="images/bamboo-forest.jfif" alt="" loading="lazy">
-            <img src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy">
-          </div>
-          <div class="portfolio-copy">
-            <p class="portfolio-type">VISUAL GALLERY</p>
-            <h3>Japan Travel Inspiration</h3>
-            <p>A destination gallery highlighting Kyoto scenery and Japanese city life.</p>
-            <div class="portfolio-tags"><span>Gallery</span><span>Responsive layout</span></div>
-            <a href="#destinations" class="portfolio-link">Explore gallery <span aria-hidden="true">↗</span></a>
-          </div>
-        </article>
-      </div>
-
-    </section>
-
-    <!-- FEATURED VIDEO SECTION -->
-    <section class="section section-width" id="video">
-
-      <p class="section-label">05 / Featured video</p>
-
-      <div class="video-showcase">
-        <div class="video-copy">
-          <h2>Stories feel different in motion.</h2>
-          <p class="section-intro">
-            A short anime-style video sample, added as a featured piece of media.
-            Use the built-in player controls to watch it whenever you like.
-          </p>
-          <p class="video-meta">
-            <span class="status-dot" aria-hidden="true"></span>
-            Vertical video <span aria-hidden="true">·</span> 14.8 seconds
-          </p>
-        </div>
-
-        <div class="video-player-shell">
-          <video
-            class="featured-video"
-            controls
-            playsinline
-            preload="metadata"
-            poster="images/featured-video-poster.jpg"
-            aria-label="Featured vertical anime-style video"
-          >
-            <source src="videos/featured-video.mp4" type="video/mp4">
-            Sorry, your browser does not support embedded videos.
-            <a href="videos/featured-video.mp4">Open the video file</a> instead.
-          </video>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- DESTINATIONS SECTION -->
-    <section class="section section-width" id="destinations">
-
-      <p class="section-label">06 / Travel inspiration</p>
-
-      <h2>Discover Kyoto and Japan</h2>
-
-      <p class="section-intro">
-        A few places and scenes that make Japan an inspiring destination.
-      </p>
-
-      <div class="destination-grid">
-
-        <article class="destination-card">
-          <a href="https://kyoto.travel/en/areas/nishikyo/"
-             target="_blank"
-             rel="noopener noreferrer">
-
-            <img src="images/bamboo-forest.jfif"
-                 alt="Green bamboo forest in Kyoto">
-
-            <div class="destination-copy">
-              <h3>The Bamboo Forest</h3>
-              <p>
-                Walk beneath towering bamboo and explore
-                the highlights of Arashiyama.
-              </p>
-              <span>Explore Kyoto ↗</span>
-            </div>
-
-          </a>
-        </article>
-
-        <article class="destination-card">
-          <a href="https://www.gotokyo.org/en/"
-             target="_blank"
-             rel="noopener noreferrer">
-
-            <img src="images/kyoto-vs-tokyo.jfif"
-                 alt="Traditional Kyoto and modern Tokyo">
-
-            <div class="destination-copy">
-              <h3>Kyoto or Tokyo?</h3>
-              <p>
-                Compare timeless temples with Tokyo's
-                energetic streets and modern districts.
-              </p>
-              <span>Discover Tokyo ↗</span>
-            </div>
-
-          </a>
-        </article>
-
-        <article class="destination-card">
-          <a href="https://kyoto.travel/en/seasonal-info"
-             target="_blank"
-             rel="noopener noreferrer">
-
-            <img src="images/kyoto-autumn.jfif"
-                 alt="Kyoto temple in autumn">
-
-            <div class="destination-copy">
-              <h3>Kyoto in Autumn</h3>
-              <p>
-                See Japan painted in rich shades of
-                red, orange and gold.
-              </p>
-              <span>View the seasons ↗</span>
-            </div>
-
-          </a>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="section section-width contact" id="contact">
-
-      <p class="section-label">07 / Get in touch</p>
-
-      <h2>Have a project in mind?</h2>
-
-      <p class="section-intro">
-        Let's connect and turn a good idea into something useful.
-      </p>
-
-      <button class="button button-primary"
-              id="hello-button"
-              type="button">
-        Say Hello ↗
+  <section class="theme-dock section-width" aria-labelledby="theme-heading">
+    <div class="theme-dock-copy">
+      <span class="dock-kicker">THEME SELECTOR / 05</span>
+      <h2 id="theme-heading">Choose your universe</h2>
+      <p>Five different anime-inspired looks. Pick the vibe you like.</p>
+    </div>
+    <div class="theme-options" role="group" aria-label="Choose a website theme">
+      <button class="theme-option" type="button" data-theme-choice="sakura" aria-pressed="true" title="Sakura theme">
+        <span class="theme-swatch swatch-sakura" aria-hidden="true"></span><span>Sakura</span>
       </button>
+      <button class="theme-option" type="button" data-theme-choice="cyber" aria-pressed="false" title="Cyber Tokyo theme">
+        <span class="theme-swatch swatch-cyber" aria-hidden="true"></span><span>Cyber Tokyo</span>
+      </button>
+      <button class="theme-option" type="button" data-theme-choice="shonen" aria-pressed="false" title="Shonen impact theme">
+        <span class="theme-swatch swatch-shonen" aria-hidden="true"></span><span>Shonen</span>
+      </button>
+      <button class="theme-option" type="button" data-theme-choice="moon" aria-pressed="false" title="Moonlight anime theme">
+        <span class="theme-swatch swatch-moon" aria-hidden="true"></span><span>Moonlight</span>
+      </button>
+      <button class="theme-option" type="button" data-theme-choice="zen" aria-pressed="false" title="Zen garden theme">
+        <span class="theme-swatch swatch-zen" aria-hidden="true"></span><span>Zen garden</span>
+      </button>
+    </div>
+    <p class="theme-status" id="theme-status" aria-live="polite">Sakura theme selected</p>
+  </section>
 
-      <p id="message" class="message" aria-live="polite"></p>
-
+  <main id="main-content">
+    <section class="hero section-width" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> WELCOME TO MY DIGITAL WORLD</p>
+        <p class="hero-japanese" aria-hidden="true">夢をデザインする · DREAM / CREATE / REPEAT</p>
+        <h1>Hey, I'm <span>Muhammad Ali</span><b class="hero-star" aria-hidden="true">✦</b></h1>
+        <p class="intro">A curious creative from Rahim Yar Khan, exploring web design, digital experiences and visual storytelling. I love turning ideas into something people can enjoy.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#portfolio">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="button button-secondary" href="#contact">Contact me</a>
+        </div>
+        <p class="hero-note"><span class="status-dot" aria-hidden="true"></span> Learning, building and creating every day.</p>
+      </div>
+      <div class="hero-visual reveal" aria-label="Muhammad Ali portfolio emblem">
+        <div class="hero-aura aura-one"></div><div class="hero-aura aura-two"></div>
+        <div class="hero-orbit orbit-one"><span>✦</span></div><div class="hero-orbit orbit-two"><span>✧</span></div>
+        <div class="profile-frame"><img src="images/logo.jpg" alt="Muhammad Ali's portfolio logo" fetchpriority="high"></div>
+        <span class="visual-caption">CREATIVE MIND <i>✦</i> DIGITAL WORLD</span>
+        <span class="floating-tag tag-top">✧ KEEP CREATING</span>
+        <span class="floating-tag tag-bottom">EST. 2026</span>
+      </div>
+      <a class="scroll-cue" href="#about"><span></span> SCROLL TO EXPLORE</a>
     </section>
 
+    <section class="section section-width" id="about">
+      <div class="section-heading reveal"><p class="section-label">01 / THE PERSON BEHIND THE SCREEN</p><h2>Small beginnings.<br><span class="accent-text">Big creative energy.</span></h2></div>
+      <p class="section-intro reveal">I'm Muhammad Ali. I have completed my Matriculation (10th class) and I'm interested in technology, creative design and building things for the web. This portfolio is my space to introduce myself and showcase the work and experiments I create along the way.</p>
+      <div class="profile-facts">
+        <article class="fact-card reveal"><span class="fact-icon" aria-hidden="true">✦</span><span class="fact-label">MY NAME</span><strong>Muhammad Ali</strong><p>The person behind this portfolio.</p></article>
+        <article class="fact-card reveal"><span class="fact-icon" aria-hidden="true">⌖</span><span class="fact-label">MY CITY</span><strong>Rahim Yar Khan</strong><p>Punjab, Pakistan.</p></article>
+        <article class="fact-card reveal"><span class="fact-icon" aria-hidden="true">学</span><span class="fact-label">EDUCATION</span><strong>Matric passed</strong><p>10th class completed.</p></article>
+        <article class="fact-card reveal"><span class="fact-icon" aria-hidden="true">⌘</span><span class="fact-label">MY INTERESTS</span><strong>Web & Visual Design</strong><p>Learning through hands-on projects.</p></article>
+      </div>
+    </section>
+
+    <section class="section section-width" id="education">
+      <div class="section-heading reveal"><p class="section-label">02 / EDUCATION</p><h2>Learning is a <span class="accent-text">continuous journey.</span></h2></div>
+      <article class="education-card reveal">
+        <div class="education-mark" aria-hidden="true">10<span>TH</span></div>
+        <div class="education-copy"><p class="education-status"><span class="status-dot" aria-hidden="true"></span> COMPLETED</p><h3>Matriculation</h3><p>10th Class · Secondary education</p></div>
+        <span class="education-level">Qualification</span>
+      </article>
+    </section>
+
+    <section class="section section-width" id="skills">
+      <div class="section-heading reveal"><p class="section-label">03 / MY TOOLKIT</p><h2>Things I'm learning <span class="accent-text">and exploring.</span></h2></div>
+      <p class="section-intro reveal">These are the tools and creative areas featured in my current learning journey.</p>
+      <div class="skill-grid">
+        <article class="skill-card reveal"><span class="skill-number">01</span><div class="skill-icon">&lt;/&gt;</div><h3>HTML</h3><p>Building clear, semantic and organized website structure.</p><div class="skill-track"><span style="--skill-progress:82%"></span></div></article>
+        <article class="skill-card reveal"><span class="skill-number">02</span><div class="skill-icon">✳</div><h3>CSS</h3><p>Exploring responsive layouts, visual design and animation.</p><div class="skill-track"><span style="--skill-progress:76%"></span></div></article>
+        <article class="skill-card reveal"><span class="skill-number">03</span><div class="skill-icon skill-icon-js">JS</div><h3>JavaScript</h3><p>Learning interactive features and useful user experiences.</p><div class="skill-track"><span style="--skill-progress:58%"></span></div></article>
+        <article class="skill-card reveal"><span class="skill-number">04</span><div class="skill-icon">▶</div><h3>Video Editing</h3><p>Working with video, visual pacing and creative presentation.</p><div class="skill-track"><span style="--skill-progress:72%"></span></div></article>
+      </div>
+      <p class="skill-disclaimer">Progress bars are visual decoration, not formal skill ratings.</p>
+    </section>
+
+    <section class="section section-width" id="portfolio">
+      <div class="section-heading reveal"><p class="section-label">04 / SELECTED WORK</p><h2>A little collection of <span class="accent-text">what I create.</span></h2></div>
+      <p class="section-intro reveal">A showcase of this website, video experiments and visual inspiration. I’ll keep adding new projects as I make them.</p>
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal"><div class="portfolio-preview preview-website" aria-hidden="true"><span class="preview-window"><i></i><i></i><i></i><b>MA.</b><em></em><em></em></span><span class="preview-glow"></span></div><div class="portfolio-copy"><p class="portfolio-type">WEB DESIGN / 01</p><h3>Personal Portfolio Website</h3><p>This responsive portfolio, built with HTML, CSS and JavaScript, includes five switchable visual themes.</p><div class="portfolio-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a href="#home" class="portfolio-link">Back to the top <span aria-hidden="true">↗</span></a></div></article>
+        <article class="portfolio-card reveal"><div class="portfolio-preview preview-video" aria-hidden="true"><img src="images/featured-video-poster.jpg" alt="" loading="lazy"><span class="preview-play">▶</span></div><div class="portfolio-copy"><p class="portfolio-type">VIDEO / 02</p><h3>Anime Video Showcase</h3><p>A featured video sample presented with a custom poster and built-in browser player.</p><div class="portfolio-tags"><span>Video</span><span>Editing</span><span>Visual media</span></div><a href="#video" class="portfolio-link">Watch featured video <span aria-hidden="true">↗</span></a></div></article>
+        <article class="portfolio-card reveal"><div class="portfolio-preview preview-gallery" aria-hidden="true"><img src="images/kyoto-autumn.jfif" alt="" loading="lazy"><img src="images/bamboo-forest.jfif" alt="" loading="lazy"><img src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy"></div><div class="portfolio-copy"><p class="portfolio-type">VISUAL GALLERY / 03</p><h3>Japan Travel Inspiration</h3><p>A small visual collection highlighting Kyoto scenery and Japanese city life.</p><div class="portfolio-tags"><span>Gallery</span><span>Visual design</span></div><a href="#destinations" class="portfolio-link">Explore gallery <span aria-hidden="true">↗</span></a></div></article>
+      </div>
+    </section>
+
+    <section class="section section-width" id="video">
+      <div class="section-heading reveal"><p class="section-label">05 / FEATURED VIDEO</p><h2>Stories feel different <span class="accent-text">in motion.</span></h2></div>
+      <div class="video-showcase reveal">
+        <div class="video-copy"><p class="section-intro">A short anime-style video sample from the supplied project files. Use the built-in player controls to watch it.</p><p class="video-meta"><span class="status-dot" aria-hidden="true"></span> Featured video <span aria-hidden="true">·</span> Browser player</p></div>
+        <div class="video-player-shell"><video class="featured-video" controls playsinline preload="metadata" poster="images/featured-video-poster.jpg" aria-label="Featured anime-style video"><source src="videos/featured-video.mp4" type="video/mp4">Sorry, your browser does not support embedded videos. <a href="videos/featured-video.mp4">Open the video file</a> instead.</video></div>
+      </div>
+    </section>
+
+    <section class="section section-width" id="destinations">
+      <div class="section-heading reveal"><p class="section-label">06 / VISUAL INSPIRATION</p><h2>Discover <span class="accent-text">Japan.</span></h2></div>
+      <p class="section-intro reveal">A few places and scenes that make Japan an inspiring destination.</p>
+      <div class="destination-grid">
+        <article class="destination-card reveal"><a href="https://kyoto.travel/en/areas/nishikyo/" target="_blank" rel="noopener noreferrer"><img src="images/bamboo-forest.jfif" alt="Green bamboo forest in Kyoto" loading="lazy"><div class="destination-copy"><h3>The Bamboo Forest</h3><p>Walk beneath towering bamboo and explore the highlights of Arashiyama.</p><span>Explore Kyoto ↗</span></div></a></article>
+        <article class="destination-card reveal"><a href="https://www.gotokyo.org/en/" target="_blank" rel="noopener noreferrer"><img src="images/kyoto-vs-tokyo.jfif" alt="Traditional Kyoto and modern Tokyo" loading="lazy"><div class="destination-copy"><h3>Kyoto or Tokyo?</h3><p>Compare timeless temples with Tokyo's energetic streets and modern districts.</p><span>Discover Tokyo ↗</span></div></a></article>
+        <article class="destination-card reveal"><a href="https://kyoto.travel/en/seasonal-info" target="_blank" rel="noopener noreferrer"><img src="images/kyoto-autumn.jfif" alt="Kyoto temple in autumn" loading="lazy"><div class="destination-copy"><h3>Kyoto in Autumn</h3><p>See Japan painted in rich shades of red, orange and gold.</p><span>View the seasons ↗</span></div></a></article>
+      </div>
+    </section>
+
+    <section class="section section-width" id="contact">
+      <div class="section-heading reveal"><p class="section-label">07 / GET IN TOUCH</p><h2>Let's make something <span class="accent-text">great together.</span></h2></div>
+      <p class="section-intro reveal">Have a question or a project idea? The best way to reach me is by email.</p>
+      <div class="contact-layout">
+        <article class="contact-card contact-primary reveal"><span class="contact-icon" aria-hidden="true">✉</span><p class="contact-overline">SEND ME AN EMAIL</p><h3>Let's start a conversation.</h3><a class="email-link" href="mailto:malikhan621127@gmail.com">malikhan621127@gmail.com <span aria-hidden="true">↗</span></a><button class="copy-email" id="copy-email" type="button">Copy email address</button><p class="copy-status" id="copy-status" aria-live="polite"></p></article>
+        <div class="contact-details reveal"><div class="detail-row"><span class="detail-icon" aria-hidden="true">◎</span><div><span>NAME</span><strong>Muhammad Ali</strong></div></div><div class="detail-row"><span class="detail-icon" aria-hidden="true">⌖</span><div><span>LOCATION</span><strong>Rahim Yar Khan, Pakistan</strong></div></div><div class="detail-row"><span class="detail-icon" aria-hidden="true">▤</span><div><span>EDUCATION</span><strong>Matriculation · 10th class passed</strong></div></div><div class="detail-row"><span class="detail-icon" aria-hidden="true">✦</span><div><span>INTERESTS</span><strong>Web design · Video editing · Creative work</strong></div></div></div>
+      </div>
+      <p class="contact-privacy-note">Note: This email address is displayed publicly on this website.</p>
+    </section>
+
+    <section class="section section-width comments-section" id="comments">
+      <div class="section-heading reveal"><p class="section-label">08 / COMMUNITY WALL</p><h2>Leave a <span class="accent-text">little message.</span></h2></div>
+      <p class="section-intro reveal">Share a kind thought, feedback or an idea about the portfolio.</p>
+      <div class="comments-layout">
+        <form class="comment-form reveal" id="comment-form">
+          <label for="comment-name">Your name</label><input id="comment-name" name="name" type="text" maxlength="40" placeholder="Enter your name" autocomplete="name" required>
+          <label for="comment-text">Your comment</label><textarea id="comment-text" name="comment" rows="5" maxlength="500" placeholder="Write something thoughtful..." required></textarea>
+          <div class="comment-form-footer"><span id="comment-counter">0 / 500</span><button class="button button-primary" type="submit">Post comment <span aria-hidden="true">↗</span></button></div>
+          <p class="form-status" id="comment-status" aria-live="polite"></p>
+        </form>
+        <div class="comment-board reveal"><div class="comment-board-heading"><h3>Guestbook</h3><span class="comment-count" id="comment-count">0 messages</span></div><div class="comment-list" id="comment-list" aria-live="polite"><p class="empty-comments">No comments yet. Be the first to leave a message!</p></div><p class="comment-storage-note">Comments are saved only in this browser on this device. They are not sent to a server or shared with other visitors.</p><button class="clear-comments" id="clear-comments" type="button" hidden>Clear comments on this device</button></div>
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Muhammad Ali. All rights reserved.</p>
-    <a href="#home">Back to top ↑</a>
-  </footer>
-
+  <footer class="site-footer"><a class="footer-brand" href="#home">MA<span>.</span></a><p>© <span id="year"></span> Muhammad Ali. Made with creativity.</p><a href="#home">Back to top ↑</a></footer>
+  <div class="ambient-sparkles" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span><span>✦</span><span>✧</span></div>
 </body>
 </html>
