@@ -1,6 +1,6 @@
 # Muhammad Ali — Creative Portfolio
 
-A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, twelve live video backgrounds, animated SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
+A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, twelve selectable animated wallpaper scenes, animated SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
 
 ## Run locally
 
@@ -79,4 +79,4 @@ GitHub's web upload interface currently accepts files up to 25 MiB each and up t
 
 ## GitHub Pages wallpaper fallback
 
-The GitHub-ready page animates each selected wallpaper poster with CSS, so the visual motion and floating icons work on desktop, laptop, tablet and mobile without requiring video autoplay. The original MP4 wallpaper loops are optional large media assets and remain in the supplied project ZIP; add them under `videos/wallpapers/` to enable full-motion video backgrounds.
+The GitHub-ready page animates each selected wallpaper poster with CSS, so the visual motion and floating icons work on desktop, laptop, tablet and mobile without requiring video autoplay. To keep the repository lightweight, this branch uses image files already present in the repository for the wallpaper poster previews. The original unique poster images and MP4 wallpaper loops remain in the supplied project ZIP and can be added later under `images/wallpaper-posters/` and `videos/wallpapers/`.
