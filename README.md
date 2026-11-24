@@ -20,6 +20,13 @@ No build tools, package installation or framework are required.
 
 Theme choice is saved in browser local storage and restored on the next visit on that same browser/device.
 
+## Cross-device motion
+
+- Background icons and interface icon animations are enabled consistently across desktop, laptop, tablet and mobile layouts.
+- The site's motion control lets visitors pause or resume animations; the choice is saved in that browser on that device.
+- A system-level reduced-motion setting no longer silently disables motion when the visitor has left the motion control enabled.
+- Scroll progress updates are scheduled once per animation frame, the tab's decorative motion pauses while hidden, and glass blur is capped to reduce rendering work.
+
 ## Portfolio details
 
 - Name: Muhammad Ali

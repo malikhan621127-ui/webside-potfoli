@@ -14,6 +14,11 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+
+  <div class="device-motion-icons" aria-hidden="true">
+    <span>✦</span><span>✧</span><span>◈</span><span>✺</span><span>✦</span>
+    <span>⬡</span><span>✧</span><span>◇</span><span>✺</span>
+  </div>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
@@ -171,5 +176,10 @@
 
   <footer class="site-footer"><a class="footer-brand" href="#home">MA<span>.</span></a><p>© <span id="year"></span> Muhammad Ali. Made with creativity.</p><a href="#home">Back to top ↑</a></footer>
   <div class="ambient-sparkles" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span><span>✦</span><span>✧</span></div>
+
+  <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="true" aria-label="Pause all animations">
+    <span class="motion-toggle-icon" id="motion-toggle-icon" aria-hidden="true">Ⅱ</span>
+    <span id="motion-toggle-label">Pause motion</span>
+  </button>
 </body>
 </html>

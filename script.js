@@ -24,6 +24,37 @@
     try { window.localStorage.removeItem(key); } catch (_error) { /* Storage may be disabled. */ }
   }
 
+  // Motion is enabled consistently on every screen size by default.
+  // Visitors can pause it explicitly; the preference is saved on this device.
+  const motionStorageKey = "muhammadAliPortfolioMotion";
+  const motionToggle = document.querySelector("#motion-toggle");
+  const motionToggleLabel = document.querySelector("#motion-toggle-label");
+  const motionToggleIcon = document.querySelector("#motion-toggle-icon");
+  let motionEnabled = safeStorageGet(motionStorageKey) !== "off";
+
+  function setMotionEnabled(enabled, shouldSave = true) {
+    motionEnabled = Boolean(enabled);
+    root.classList.toggle("motion-enabled", motionEnabled);
+    root.classList.toggle("motion-paused", !motionEnabled);
+    if (motionToggle) {
+      motionToggle.setAttribute("aria-pressed", String(motionEnabled));
+      motionToggle.setAttribute("aria-label", motionEnabled ? "Pause all animations" : "Play all animations");
+    }
+    if (motionToggleLabel) motionToggleLabel.textContent = motionEnabled ? "Pause motion" : "Play motion";
+    if (motionToggleIcon) motionToggleIcon.textContent = motionEnabled ? "Ⅱ" : "▶";
+    if (shouldSave) safeStorageSet(motionStorageKey, motionEnabled ? "on" : "off");
+  }
+
+  setMotionEnabled(motionEnabled, false);
+  if (motionToggle) {
+    motionToggle.addEventListener("click", () => setMotionEnabled(!motionEnabled));
+  }
+
+  // Do not spend animation frames while this tab is hidden.
+  document.addEventListener("visibilitychange", () => {
+    root.classList.toggle("motion-suspended", document.hidden);
+  });
+
   function applyTheme(theme, shouldSave = true) {
     if (!allowedThemes.has(theme)) theme = "sakura";
     root.dataset.theme = theme;
@@ -205,8 +236,16 @@
     const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
     progress.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
   }
-  window.addEventListener("scroll", updateProgress, { passive: true });
-  window.addEventListener("resize", updateProgress);
+  let progressFrame = 0;
+  function scheduleProgressUpdate() {
+    if (progressFrame) return;
+    progressFrame = window.requestAnimationFrame(() => {
+      progressFrame = 0;
+      updateProgress();
+    });
+  }
+  window.addEventListener("scroll", scheduleProgressUpdate, { passive: true });
+  window.addEventListener("resize", scheduleProgressUpdate);
   updateProgress();
 
   const revealItems = Array.from(document.querySelectorAll(".reveal"));
