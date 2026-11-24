@@ -263,4 +263,85 @@
   } else {
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
+
+  // Live wallpaper selector. The public GitHub build animates the poster image with CSS;
+  // video assets are optional and are not requested unless they are present in the page.
+  const galleryWallpaperVideo = document.querySelector("#wallpaper-video");
+  const galleryWallpaperChoices = Array.from(document.querySelectorAll("[data-wallpaper-choice]"));
+  const galleryWallpaperStatus = document.querySelector("#wallpaper-status");
+  const galleryWallpaperToggle = document.querySelector("#wallpaper-toggle");
+  const galleryWallpaperKey = "muhammadAliPortfolioWallpaper";
+
+  function syncGalleryMotionButton() {
+    if (!galleryWallpaperToggle) return;
+    const paused = root.classList.contains("motion-paused");
+    const label = galleryWallpaperToggle.querySelector(".motion-toggle-label");
+    const icon = galleryWallpaperToggle.querySelector(".motion-icon");
+    if (label) label.textContent = paused ? "Play motion" : "Pause motion";
+    if (icon) icon.innerHTML = paused
+      ? '<path d="M8 5.8v12.4L18.2 12 8 5.8Z"/>'
+      : '<path d="M7 5h4v14H7zM15 5h4v14h-4z"/>';
+    galleryWallpaperToggle.setAttribute("aria-label", paused ? "Play all motion effects" : "Pause all motion effects");
+    galleryWallpaperToggle.classList.toggle("is-paused", paused);
+  }
+
+  function selectGalleryWallpaper(id, shouldSave = true) {
+    if (!galleryWallpaperVideo || galleryWallpaperChoices.length === 0) return;
+    const choice = galleryWallpaperChoices.find((button) => button.dataset.wallpaperChoice === id) ||
+      galleryWallpaperChoices.find((button) => button.dataset.wallpaperChoice === "fading-summer-skies") ||
+      galleryWallpaperChoices[0];
+    if (!choice) return;
+    const title = choice.querySelector("strong")?.textContent?.trim() || "Live background";
+    const poster = choice.dataset.wallpaperPoster || "";
+    galleryWallpaperChoices.forEach((button) => button.setAttribute("aria-pressed", String(button === choice)));
+    galleryWallpaperVideo.pause();
+    galleryWallpaperVideo.removeAttribute("src");
+    galleryWallpaperVideo.poster = poster;
+    galleryWallpaperVideo.load();
+    if (galleryWallpaperStatus) {
+      galleryWallpaperStatus.textContent = root.classList.contains("motion-paused")
+        ? title + " selected · motion paused"
+        : title + " selected · animated background active";
+    }
+    if (shouldSave) safeStorageSet(galleryWallpaperKey, choice.dataset.wallpaperChoice);
+  }
+
+  const savedGalleryWallpaper = safeStorageGet(galleryWallpaperKey);
+  selectGalleryWallpaper(savedGalleryWallpaper || "fading-summer-skies", false);
+  galleryWallpaperChoices.forEach((button) => {
+    button.addEventListener("click", () => selectGalleryWallpaper(button.dataset.wallpaperChoice));
+  });
+  if (galleryWallpaperToggle) {
+    galleryWallpaperToggle.addEventListener("click", () => {
+      const paused = root.classList.contains("motion-paused");
+      setMotionEnabled(paused);
+      syncGalleryMotionButton();
+      if (galleryWallpaperStatus) galleryWallpaperStatus.textContent = paused
+        ? "Animated background effects enabled"
+        : "All motion effects paused";
+    });
+    syncGalleryMotionButton();
+  }
+
+  const galleryPageLoader = document.querySelector("#page-loader");
+  if (galleryPageLoader) {
+    const hideGalleryLoader = () => {
+      galleryPageLoader.classList.add("is-hidden");
+      window.setTimeout(() => galleryPageLoader.remove(), 750);
+    };
+    window.addEventListener("load", () => window.setTimeout(hideGalleryLoader, 350), { once: true });
+    window.setTimeout(hideGalleryLoader, 2400);
+  }
+
+  const thankYouButton = document.querySelector("#thank-you-button");
+  const thankYouSection = document.querySelector("#thank-you");
+  const thankYouStatus = document.querySelector("#thank-you-status");
+  if (thankYouButton && thankYouSection) {
+    thankYouButton.addEventListener("click", () => {
+      thankYouSection.classList.remove("is-celebrating");
+      void thankYouSection.offsetWidth;
+      thankYouSection.classList.add("is-celebrating");
+      if (thankYouStatus) thankYouStatus.textContent = "Thank you for visiting!";
+    });
+  }
 })();
