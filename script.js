@@ -9,7 +9,7 @@
   // The CSS uses the legacy visual theme names for Neon, Action and Calm.
   const allowedThemes = new Set(["rose", "neon", "action", "moon", "calm"]);
   const themeCssNames = {
-    rose: "rose",
+    rose: "sakura",
     neon: "cyber",
     action: "shonen",
     moon: "moon",
@@ -36,28 +36,16 @@
   // Motion is enabled consistently on every screen size by default.
   // Visitors can pause it explicitly; the preference is saved on this device.
   const motionStorageKey = "muhammadAliPortfolioMotion";
-  const motionToggle = document.querySelector("#motion-toggle");
-  const motionToggleLabel = document.querySelector("#motion-toggle-label");
-  const motionToggleIcon = document.querySelector("#motion-toggle-icon");
   let motionEnabled = safeStorageGet(motionStorageKey) !== "off";
 
   function setMotionEnabled(enabled, shouldSave = true) {
     motionEnabled = Boolean(enabled);
     root.classList.toggle("motion-enabled", motionEnabled);
     root.classList.toggle("motion-paused", !motionEnabled);
-    if (motionToggle) {
-      motionToggle.setAttribute("aria-pressed", String(motionEnabled));
-      motionToggle.setAttribute("aria-label", motionEnabled ? "Pause all animations" : "Play all animations");
-    }
-    if (motionToggleLabel) motionToggleLabel.textContent = motionEnabled ? "Pause motion" : "Play motion";
-    if (motionToggleIcon) motionToggleIcon.textContent = motionEnabled ? "Ⅱ" : "▶";
     if (shouldSave) safeStorageSet(motionStorageKey, motionEnabled ? "on" : "off");
   }
 
   setMotionEnabled(motionEnabled, false);
-  if (motionToggle) {
-    motionToggle.addEventListener("click", () => setMotionEnabled(!motionEnabled));
-  }
 
   // Do not spend animation frames while this tab is hidden.
   document.addEventListener("visibilitychange", () => {
@@ -80,7 +68,7 @@
   }
 
   const savedTheme = safeStorageGet("muhammadAliPortfolioTheme");
-  applyTheme(allowedThemes.has(savedTheme) ? savedTheme : "sakura", false);
+  applyTheme(allowedThemes.has(savedTheme) ? savedTheme : "rose", false);
   themeButtons.forEach((button) => {
     button.addEventListener("click", () => applyTheme(button.dataset.themeChoice));
   });
@@ -127,7 +115,6 @@
   const commentList = document.querySelector("#comment-list");
   const commentCount = document.querySelector("#comment-count");
   const commentStatus = document.querySelector("#comment-status");
-  const clearCommentsButton = document.querySelector("#clear-comments");
   const maxComments = 50;
 
   function loadComments() {
@@ -155,7 +142,6 @@
     if (!commentList) return;
     commentList.replaceChildren();
     if (commentCount) commentCount.textContent = `${comments.length} ${comments.length === 1 ? "message" : "messages"}`;
-    if (clearCommentsButton) clearCommentsButton.hidden = comments.length === 0;
 
     if (comments.length === 0) {
       const empty = document.createElement("p");
@@ -165,7 +151,7 @@
       return;
     }
 
-    comments.forEach((comment) => {
+    comments.forEach((comment, index) => {
       const article = document.createElement("article");
       article.className = "comment-item";
       const heading = document.createElement("div");
@@ -182,7 +168,22 @@
       }
       const message = document.createElement("p");
       message.textContent = comment.text;
-      heading.append(name, time);
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "comment-delete";
+      removeButton.textContent = "Remove";
+      removeButton.setAttribute("aria-label", "Remove comment by " + comment.name);
+      removeButton.addEventListener("click", () => {
+        comments.splice(index, 1);
+        const saved = safeStorageSet(commentStorageKey, JSON.stringify(comments));
+        renderComments();
+        if (commentStatus) {
+          commentStatus.textContent = saved
+            ? "Your comment was removed from this browser."
+            : "This browser blocked local storage; the comment may reappear after reloading.";
+        }
+      });
+      heading.append(name, time, removeButton);
       article.append(heading, message);
       commentList.appendChild(article);
     });
@@ -220,17 +221,6 @@
           ? "Your comment has been saved in this browser."
           : "This browser blocked local storage, so the comment may disappear after you leave this page.";
       }
-    });
-  }
-
-  if (clearCommentsButton) {
-    clearCommentsButton.addEventListener("click", () => {
-      const confirmed = window.confirm("Clear all guestbook comments saved in this browser on this device?");
-      if (!confirmed) return;
-      comments = [];
-      safeStorageRemove(commentStorageKey);
-      renderComments();
-      if (commentStatus) commentStatus.textContent = "Local comments cleared.";
     });
   }
 
