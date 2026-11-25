@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="wallpaper-backdrop" aria-hidden="true">
-    <video id="wallpaper-video" muted loop playsinline preload="none" poster="images/featured-video-poster.jpg"></video>
+    <img id="wallpaper-image" class="wallpaper-image" src="images/kyoto-vs-tokyo.jfif" alt="" fetchpriority="high">
     <div class="wallpaper-shade"></div>
   </div>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -93,106 +93,37 @@
   <section class="wallpaper-dock section-width" aria-labelledby="wallpaper-heading">
     <div class="wallpaper-dock-head">
       <div>
-        <span class="dock-kicker">ANIMATED POSTER SCENES / 12</span>
+        <span class="dock-kicker">UNIQUE IMAGE BACKGROUNDS / 04</span>
         <h2 id="wallpaper-heading">Choose your moving background</h2>
-        <p>Choose a poster scene for the whole website. Subtle CSS motion animates the selected image and interface details across devices.</p>
+        <p>Four different local images. Subtle CSS drift and glow effects add motion without relying on an empty video player or external wallpaper files.</p>
       </div>
       <div class="wallpaper-controls">
-        <p class="wallpaper-status" id="wallpaper-status" aria-live="polite">Fading Summer Skies selected</p>
+        <p class="wallpaper-status" id="wallpaper-status" aria-live="polite">Tokyo Skyline selected</p>
         <button class="wallpaper-toggle" id="wallpaper-toggle" type="button" aria-label="Pause all motion effects">
           <svg class="motion-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM15 5h4v14h-4z"/></svg>
           <span class="motion-toggle-label">Pause motion</span>
         </button>
       </div>
     </div>
-    <div class="wallpaper-list" role="group" aria-label="Choose a live website background">
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="neon-blade-battle" data-wallpaper-src="" data-wallpaper-poster="images/file.jpg" aria-pressed="false" title="Use Neon Blade Battle as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/file.jpg" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Neon Blade Battle</strong><small>ANIMATED SCENE</small></span>
+    <div class="wallpaper-list" role="group" aria-label="Choose an image background">
+      <button class="wallpaper-choice" type="button" data-wallpaper-choice="creative-artwork" data-wallpaper-image="images/file.jpg" aria-pressed="false" title="Use Creative Artwork as the background">
+        <span class="wallpaper-thumb"><img decoding="async" src="images/file.jpg" alt="" loading="lazy"></span>
+        <span class="wallpaper-choice-label"><strong>Creative Artwork</strong><small>IMAGE + CSS MOTION</small></span>
       </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="prism-light-show" data-wallpaper-src="" data-wallpaper-poster="images/file.jpe" aria-pressed="false" title="Use Prism Light Show as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/file.jpe" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Prism Light Show</strong><small>ANIMATED SCENE</small></span>
+      <button class="wallpaper-choice" type="button" data-wallpaper-choice="tokyo-skyline" data-wallpaper-image="images/kyoto-vs-tokyo.jfif" aria-pressed="true" title="Use Tokyo Skyline as the background">
+        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy"></span>
+        <span class="wallpaper-choice-label"><strong>Tokyo Skyline</strong><small>IMAGE + CSS MOTION</small></span>
       </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="midnight-city-lights" data-wallpaper-src="" data-wallpaper-poster="images/kyoto-vs-tokyo.jfif" aria-pressed="false" title="Use Midnight City Lights as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Midnight City Lights</strong><small>ANIMATED SCENE</small></span>
+      <button class="wallpaper-choice" type="button" data-wallpaper-choice="autumn-walkway" data-wallpaper-image="images/kyoto-autumn.jfif" aria-pressed="false" title="Use Autumn Walkway as the background">
+        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-autumn.jfif" alt="" loading="lazy"></span>
+        <span class="wallpaper-choice-label"><strong>Autumn Walkway</strong><small>IMAGE + CSS MOTION</small></span>
       </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="crimson-curtain" data-wallpaper-src="" data-wallpaper-poster="images/kyoto-autumn.jfif" aria-pressed="false" title="Use Crimson Curtain as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-autumn.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Crimson Curtain</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="moon-goddess" data-wallpaper-src="" data-wallpaper-poster="images/logo.jpg" aria-pressed="false" title="Use Moon Goddess as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/logo.jpg" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Moon Goddess</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="blue-sky-moment" data-wallpaper-src="" data-wallpaper-poster="images/bamboo-forest.jfif" aria-pressed="false" title="Use Blue Sky Moment as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/bamboo-forest.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Blue Sky Moment</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="fading-summer-skies" data-wallpaper-src="" data-wallpaper-poster="images/featured-video-poster.jpg" aria-pressed="true" title="Use Fading Summer Skies as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/featured-video-poster.jpg" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Fading Summer Skies</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="dragon-horizon" data-wallpaper-src="" data-wallpaper-poster="images/kyoto-vs-tokyo.jfif" aria-pressed="false" title="Use Dragon Horizon as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Dragon Horizon</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="neon-city-guardian" data-wallpaper-src="" data-wallpaper-poster="images/file.jpg" aria-pressed="false" title="Use Neon City Guardian as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/file.jpg" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Neon City Guardian</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="blossom-courtyard" data-wallpaper-src="" data-wallpaper-poster="images/bamboo-forest.jfif" aria-pressed="false" title="Use Blossom Courtyard as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/bamboo-forest.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Blossom Courtyard</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="autumn-flame" data-wallpaper-src="" data-wallpaper-poster="images/kyoto-autumn.jfif" aria-pressed="false" title="Use Autumn Flame as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/kyoto-autumn.jfif" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Autumn Flame</strong><small>ANIMATED SCENE</small></span>
-      </button>
-      <button class="wallpaper-choice" type="button" data-wallpaper-choice="blossom-blade" data-wallpaper-src="" data-wallpaper-poster="images/file.jpe" aria-pressed="false" title="Use Blossom Blade as the live background">
-        <span class="wallpaper-thumb"><img decoding="async" src="images/file.jpe" alt="" loading="lazy"><span class="wallpaper-thumb-play" aria-hidden="true">
-          <span class="thumb-play-core"><svg viewBox="0 0 24 24"><path d="M8 5.8v12.4L18.2 12 8 5.8Z"/></svg></span>
-          <span class="thumb-active-bars"><i></i><i></i><i></i></span>
-        </span></span>
-        <span class="wallpaper-choice-label"><strong>Blossom Blade</strong><small>ANIMATED SCENE</small></span>
+      <button class="wallpaper-choice" type="button" data-wallpaper-choice="bamboo-grove" data-wallpaper-image="images/bamboo-forest.jfif" aria-pressed="false" title="Use Bamboo Grove as the background">
+        <span class="wallpaper-thumb"><img decoding="async" src="images/bamboo-forest.jfif" alt="" loading="lazy"></span>
+        <span class="wallpaper-choice-label"><strong>Bamboo Grove</strong><small>IMAGE + CSS MOTION</small></span>
       </button>
     </div>
   </section>
-
   <main id="main-content">
     <section class="hero section-width" id="home">
       <div class="hero-copy reveal">
@@ -254,7 +185,7 @@
       <p class="section-intro reveal">A showcase of this website, video experiments and visual inspiration. I’ll keep adding new projects as I make them.</p>
       <div class="portfolio-grid">
         <article class="portfolio-card reveal"><div class="portfolio-preview preview-website" aria-hidden="true"><span class="preview-window"><i></i><i></i><i></i><b>MA.</b><em></em><em></em></span><span class="preview-glow"></span></div><div class="portfolio-copy"><p class="portfolio-type">WEB DESIGN / 01</p><h3>Personal Portfolio Website</h3><p>This responsive portfolio, built with HTML, CSS and JavaScript, includes five switchable visual themes.</p><div class="portfolio-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a href="#home" class="portfolio-link">Back to the top <span aria-hidden="true">↗</span></a></div></article>
-        <article class="portfolio-card reveal"><div class="portfolio-preview preview-video" aria-hidden="true"><img decoding="async" src="images/featured-video-poster.jpg" alt="" loading="lazy"><span class="preview-play">▶</span></div><div class="portfolio-copy"><p class="portfolio-type">VIDEO / 02</p><h3>Animation Video Showcase</h3><p>A featured video sample presented with a custom poster and built-in browser player.</p><div class="portfolio-tags"><span>Video</span><span>Editing</span><span>Visual media</span></div><a href="#video" class="portfolio-link">Watch featured video <span aria-hidden="true">↗</span></a></div></article>
+        <article class="portfolio-card reveal"><div class="portfolio-preview preview-video" aria-hidden="true"><span class="preview-play">▶</span></div><div class="portfolio-copy"><p class="portfolio-type">VIDEO / 02</p><h3>Animation Video Showcase</h3><p>A featured video sample presented with a custom poster and built-in browser player.</p><div class="portfolio-tags"><span>Video</span><span>Editing</span><span>Visual media</span></div><a href="#video" class="portfolio-link">Watch featured video <span aria-hidden="true">↗</span></a></div></article>
         <article class="portfolio-card reveal"><div class="portfolio-preview preview-gallery" aria-hidden="true"><img decoding="async" src="images/kyoto-autumn.jfif" alt="" loading="lazy"><img decoding="async" src="images/bamboo-forest.jfif" alt="" loading="lazy"><img decoding="async" src="images/kyoto-vs-tokyo.jfif" alt="" loading="lazy"></div><div class="portfolio-copy"><p class="portfolio-type">VISUAL GALLERY / 03</p><h3>Scenic Visual Collection</h3><p>A small visual collection highlighting scenic landscapes and vibrant city life.</p><div class="portfolio-tags"><span>Gallery</span><span>Visual design</span></div><a href="#visual-inspiration" class="portfolio-link">Explore gallery <span aria-hidden="true">↗</span></a></div></article>
       </div>
     </section>
