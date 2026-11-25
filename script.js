@@ -5,13 +5,22 @@
   const themeButtons = Array.from(document.querySelectorAll("[data-theme-choice]"));
   const themeStatus = document.querySelector("#theme-status");
   const themeMeta = document.querySelector("#theme-color-meta");
-  const allowedThemes = new Set(["sakura", "cyber", "shonen", "moon", "zen"]);
+  // Keep stored theme IDs aligned with the five buttons in index.html.
+  // The CSS uses the legacy visual theme names for Neon, Action and Calm.
+  const allowedThemes = new Set(["rose", "neon", "action", "moon", "calm"]);
+  const themeCssNames = {
+    rose: "rose",
+    neon: "cyber",
+    action: "shonen",
+    moon: "moon",
+    calm: "zen"
+  };
   const themeLabels = {
-    sakura: "Sakura",
-    cyber: "Cyber Tokyo",
-    shonen: "Shonen Impact",
+    rose: "Rose",
+    neon: "Neon Grid",
+    action: "Action Glow",
     moon: "Moonlight",
-    zen: "Zen Garden"
+    calm: "Calm Garden"
   };
 
   function safeStorageGet(key) {
@@ -56,15 +65,15 @@
   });
 
   function applyTheme(theme, shouldSave = true) {
-    if (!allowedThemes.has(theme)) theme = "sakura";
-    root.dataset.theme = theme;
+    if (!allowedThemes.has(theme)) theme = "rose";
+    root.dataset.theme = themeCssNames[theme];
     themeButtons.forEach((button) => {
       const selected = button.dataset.themeChoice === theme;
       button.setAttribute("aria-pressed", String(selected));
     });
     if (themeStatus) themeStatus.textContent = `${themeLabels[theme]} theme selected`;
     if (themeMeta) {
-      const colors = { sakura: "#0b0712", cyber: "#050d18", shonen: "#140905", moon: "#090b1c", zen: "#f1f0e8" };
+      const colors = { rose: "#0b0712", neon: "#050d18", action: "#140905", moon: "#090b1c", calm: "#f1f0e8" };
       themeMeta.setAttribute("content", colors[theme]);
     }
     if (shouldSave) safeStorageSet("muhammadAliPortfolioTheme", theme);
