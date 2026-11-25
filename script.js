@@ -36,7 +36,8 @@
   // Motion is enabled consistently on every screen size by default.
   // Visitors can pause it explicitly; the preference is saved on this device.
   const motionStorageKey = "muhammadAliPortfolioMotion";
-  let motionEnabled = safeStorageGet(motionStorageKey) !== "off";
+  const savedMotionPreference = safeStorageGet(motionStorageKey);
+  let motionEnabled = savedMotionPreference === "on" ? true : savedMotionPreference === "off" ? false : !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function setMotionEnabled(enabled, shouldSave = true) {
     motionEnabled = Boolean(enabled);
