@@ -1,6 +1,6 @@
 # Muhammad Ali — Creative Portfolio
 
-A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, twelve selectable poster scenes with CSS motion, animated SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
+A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, four distinct image backgrounds with CSS motion, clearly styled SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
 
 ## Run locally
 
@@ -18,7 +18,7 @@ A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The s
 
 ## Performance and media
 
-- The twelve wallpaper choices currently use local poster images with lightweight CSS drift/glow effects; they are not separate video clips. The single featured portfolio video is stored at `videos/featured-video.mp4` and plays only when a visitor starts it.
+- The four wallpaper choices use four different local image files with lightweight CSS drift/glow effects; they are not video clips. A failed image is replaced by a themed placeholder instead of a broken-image icon. The single featured portfolio video is stored at `videos/featured-video.mp4` and plays only when a visitor starts it.
 - Expensive full-screen video filters and oversized glass blur values were reduced to keep animation smoother on everyday PCs, laptops, tablets and phones.
 - Image elements use asynchronous decoding; gallery images are lazy-loaded where appropriate.
 
@@ -78,4 +78,4 @@ GitHub's web upload interface currently accepts files up to 25 MiB each and up t
 
 ## GitHub Pages wallpaper fallback
 
-The GitHub-ready page animates each selected wallpaper poster with CSS, so the visual motion and floating icons work on desktop, laptop, tablet and mobile without requiring video autoplay. To keep the repository lightweight, this branch uses image files already present in the repository for the wallpaper poster previews. The original unique poster images and MP4 wallpaper loops remain in the supplied project ZIP and can be added later under `images/wallpaper-posters/` and `videos/wallpapers/`.
+The GitHub Pages version uses four unique image files already tracked in `images/`. The page applies subtle CSS motion to the selected image and keeps the featured video separate. No missing wallpaper video pack or external poster directory is required.

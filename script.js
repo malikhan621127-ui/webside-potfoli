@@ -2,6 +2,21 @@
 
 (() => {
   const root = document.documentElement;
+
+  // Replace failed images with a themed fallback instead of a broken-image glyph.
+  document.querySelectorAll("img").forEach((image) => {
+    image.addEventListener("error", () => {
+      if (image.id === "wallpaper-image") {
+        image.classList.add("is-unavailable");
+        return;
+      }
+      const fallback = document.createElement("span");
+      fallback.className = "image-fallback";
+      fallback.setAttribute("aria-hidden", "true");
+      image.replaceWith(fallback);
+    });
+    image.addEventListener("load", () => image.classList.remove("is-unavailable"));
+  });
   const themeButtons = Array.from(document.querySelectorAll("[data-theme-choice]"));
   const themeStatus = document.querySelector("#theme-status");
   const themeMeta = document.querySelector("#theme-color-meta");
@@ -264,9 +279,8 @@
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
 
-  // Live wallpaper selector. The public GitHub build animates the poster image with CSS;
-  // video assets are optional and are not requested unless they are present in the page.
-  const galleryWallpaperVideo = document.querySelector("#wallpaper-video");
+  // Image wallpaper selector. CSS motion handles movement; no empty video element is used.
+  const galleryWallpaperImage = document.querySelector("#wallpaper-image");
   const galleryWallpaperChoices = Array.from(document.querySelectorAll("[data-wallpaper-choice]"));
   const galleryWallpaperStatus = document.querySelector("#wallpaper-status");
   const galleryWallpaperToggle = document.querySelector("#wallpaper-toggle");
@@ -286,28 +300,27 @@
   }
 
   function selectGalleryWallpaper(id, shouldSave = true) {
-    if (!galleryWallpaperVideo || galleryWallpaperChoices.length === 0) return;
+    if (!galleryWallpaperImage || galleryWallpaperChoices.length === 0) return;
     const choice = galleryWallpaperChoices.find((button) => button.dataset.wallpaperChoice === id) ||
-      galleryWallpaperChoices.find((button) => button.dataset.wallpaperChoice === "fading-summer-skies") ||
+      galleryWallpaperChoices.find((button) => button.dataset.wallpaperChoice === "tokyo-skyline") ||
       galleryWallpaperChoices[0];
     if (!choice) return;
     const title = choice.querySelector("strong")?.textContent?.trim() || "Live background";
-    const poster = choice.dataset.wallpaperPoster || "";
+    const imageSource = choice.dataset.wallpaperImage || "";
     galleryWallpaperChoices.forEach((button) => button.setAttribute("aria-pressed", String(button === choice)));
-    galleryWallpaperVideo.pause();
-    galleryWallpaperVideo.removeAttribute("src");
-    galleryWallpaperVideo.poster = poster;
-    galleryWallpaperVideo.load();
+    if (imageSource && galleryWallpaperImage.getAttribute("src") !== imageSource) {
+      galleryWallpaperImage.src = imageSource;
+    }
     if (galleryWallpaperStatus) {
       galleryWallpaperStatus.textContent = root.classList.contains("motion-paused")
         ? title + " selected · motion paused"
-        : title + " selected · animated background active";
+        : title + " selected · CSS motion active";
     }
     if (shouldSave) safeStorageSet(galleryWallpaperKey, choice.dataset.wallpaperChoice);
   }
 
   const savedGalleryWallpaper = safeStorageGet(galleryWallpaperKey);
-  selectGalleryWallpaper(savedGalleryWallpaper || "fading-summer-skies", false);
+  selectGalleryWallpaper(savedGalleryWallpaper || "tokyo-skyline", false);
   galleryWallpaperChoices.forEach((button) => {
     button.addEventListener("click", () => selectGalleryWallpaper(button.dataset.wallpaperChoice));
   });
