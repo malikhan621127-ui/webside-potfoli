@@ -481,3 +481,22 @@ html.motion-enabled :is(.theme-icon,.fact-icon,.skill-icon,.contact-icon,.detail
     transition-duration: revert !important;
   }
 }
+
+
+/* Guestbook: make local comment removal visible and keyboard accessible. */
+.comment-delete {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  font: 700 .65rem var(--display-font, sans-serif);
+  cursor: pointer;
+}
+.comment-delete:hover, .comment-delete:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--glow);
+}
