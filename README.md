@@ -1,6 +1,6 @@
 # Muhammad Ali — Creative Portfolio
 
-A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, twelve selectable animated wallpaper scenes, animated SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
+A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The same visual motion system runs across phones, tablets, laptops and desktop computers. The site includes five selectable themes, twelve selectable poster scenes with CSS motion, animated SVG icons, a featured video, a visual gallery, contact details and a browser-local guestbook.
 
 ## Run locally
 
@@ -11,15 +11,14 @@ A responsive static portfolio built with HTML, CSS and vanilla JavaScript. The s
 ## Motion and animation
 
 - SVG interface icons use the same gentle floating animation at every viewport size; mobile and desktop do not use separate animation versions.
-- The **Play motion / Pause motion** control enables or pauses the complete motion system, including the live wallpaper, animated icons, decorative effects and transitions.
+- The **Play motion / Pause motion** control enables or pauses the complete motion system, including poster-scene motion, animated icons, decorative effects and transitions.
 - Operating-system reduced-motion settings are respected on first visit. A visitor can explicitly select **Play motion** to enable the site effects; that choice is saved on that browser/device.
 - Motion pauses while the browser tab is hidden and resumes when the tab becomes visible again.
 - The scroll-progress bar is updated through `requestAnimationFrame` to avoid doing layout work for every scroll event.
 
 ## Performance and media
 
-- The twelve wallpaper clips are H.264 MP4, capped at 1280 pixels wide and 30 fps, with no audio track. The original wallpaper folder was about 106 MB; the optimized clips are about 40 MB combined.
-- Only the selected wallpaper video is attached to the background player. The video is muted, loops inline, and uses a poster while it loads.
+- The twelve wallpaper choices currently use local poster images with lightweight CSS drift/glow effects; they are not separate video clips. The single featured portfolio video is stored at `videos/featured-video.mp4` and plays only when a visitor starts it.
 - Expensive full-screen video filters and oversized glass blur values were reduced to keep animation smoother on everyday PCs, laptops, tablets and phones.
 - Image elements use asynchronous decoding; gallery images are lazy-loaded where appropriate.
 
@@ -52,7 +51,7 @@ The guestbook validates input and displays comments safely using text nodes. Com
 - `style.css` — responsive layout, themes, glass surfaces, animations and motion preferences.
 - `script.js` — theme and wallpaper switching, global motion control, local comments, contact helper, scroll progress and other interactions.
 - `images/` — logo, gallery images and wallpaper posters.
-- `videos/` — featured video and optimized live wallpaper clips.
+- `videos/` — featured portfolio video.
 - `.nojekyll` — tells GitHub Pages not to run Jekyll processing on the static files.
 
 ## Publish with GitHub Pages
